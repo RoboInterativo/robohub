@@ -1,0 +1,13 @@
+salt: !!binary |
+  JDJiJDEwJFVxNjNBZjhCc05JNGtLLjFhQjhvRC4=
+user_list:
+- hash: !!binary |
+    JDJiJDEwJFVxNjNBZjhCc05JNGtLLjFhQjhvRC5QUFJ1dEQxUWI0TTVxY2VHQlZOOEUzbEZGMkFU
+    Rzku
+  id: 2
+  user: admin
+- hash: !!binary |
+    JDJiJDEwJFVxNjNBZjhCc05JNGtLLjFhQjhvRC50V3U3MC9EYm03MFJPaTNmVDNWa3F5Z0tSNzUu
+    S0hp
+  id: 3
+  user: user
