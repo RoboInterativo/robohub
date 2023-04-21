@@ -83,13 +83,16 @@ async def get_user_by_name(conn, username):
         # maxsize=conf['maxsize'],
 
 def sqlite_context_engine(WORK_DIR):
-    print ('sqlite+aiosqlite:///{}/foo.db'.format(WORK_DIR))
-    engine =  create_async_engine('sqlite+aiosqlite:///{}/foo.db'.format(WORK_DIR))
+    DB_DIR=WORK_DIR+'/robohub'
+    print ('sqlite+aiosqlite:///{}/foo.db'.format(DB_DIR))
+    engine =  create_async_engine('sqlite+aiosqlite:///{}/foo.db'.format(DB_DIR))
     return  engine
 
 async def sqlite_context(app):
     WORK_DIR=app['config']['WORK_DIR']
-    engine = create_async_engine('sqlite+aiosqlite:///{}/foo.db'.format(WORK_DIR))
+    DB_DIR=WORK_DIR+'/robohub'
+    engine = create_async_engine('sqlite+aiosqlite:///{}/foo.db'.format(DB_DIR))
+    print ('sqlite+aiosqlite:///{}/foo.db'.format(DB_DIR))
     app['db'] = engine
 
     yield

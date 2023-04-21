@@ -97,6 +97,7 @@ async def get_robos_handle(request):
     conf=request.app['config']
     WORK_DIR= conf['WORK_DIR']
 
+
     response=await validate(request)
     if response.get('auth'):
 
@@ -148,26 +149,28 @@ async def handle(request):
     async def handler(request):
         return {}
 
-def create_app():
+def create_app(WORK_DIR):
     logging.info("Starting create APP.")
-    WORK_DIR=os.path.dirname(os.path.abspath(__file__))
+#    WORK_DIR=os.path.dirname(os.path.abspath(__file__))
+
     logging.info (f"Workdir{WORK_DIR}")
 
-    CONF_DIR=''
+    CONF_DIR=WORK_DIR+'/robohub'
 
-    file_path = os.path.realpath(__file__)
-    conf_path=os.path.dirname (file_path) + '/conf.yml'
+    #file_path = os.path.realpath(__file__)
+    #os.path.dirname (file_path)
+    conf_path= CONF_DIR+ '/conf.yml'
     logging.info(f"CONF PATH is {conf_path}")
 
-    if exists(conf_path):
-        CONF_DIR=os.path.dirname (file_path)
-    elif exists('/opt/conf/conf.yml'):
-        CONF_DIR='/opt/conf'
-    else:
-        print (f'PATH {conf_path} not found')
-        exit(-1)
-    f=open(CONF_DIR+'/conf.yml')
-    STATIC_DIR=WORK_DIR+'/../../front/build/'
+    # if exists(conf_path):
+    #     CONF_DIR=os.path.dirname (file_path)
+    # elif exists('/opt/conf/conf.yml'):
+    #     CONF_DIR='/opt/conf'
+    # else:
+    #     print (f'PATH {conf_path} not found')
+    #     exit(-1)
+    f=open(conf_path)
+    STATIC_DIR=WORK_DIR+'/../front/build/'
 
     conf=yaml.safe_load(f)
     f.close()
@@ -185,9 +188,11 @@ def create_app():
     if conf['mode']=='server':
         app.cleanup_ctx.append(pg_context)
     elif conf['mode']=='local':
-        app['db']=sqlite_context_engine(WORK_DIR)
-        #app.cleanup_ctx.append(sqlite_context)
-
+        logging.info("LINE 190 WORK_DIR", WORK_DIR )
+        app['db']= sqlite_context_engine (WORK_DIR)
+        # app.cleanup_ctx.append(sqlite_context)
+        # sqlite_context_engine
+# sqlite_context_engine
         # logging.info('STATIC',STATIC_DIR)
         # logging.info('PWD',WORK_DIR)
         # logging.info('CONF',WORK_DIR)
@@ -234,7 +239,8 @@ if __name__ == '__main__':
     # loop = asyncio.get_event_loop()
     try:
         logging.basicConfig(level=logging.DEBUG)
-        app =  create_app()
+        WORK_DIR=os.path.dirname(os.path.abspath(__file__))+'/..'
+        app =  create_app(WORK_DIR)
         web.run_app(app, host='0.0.0.0', port=5000)
 
 
@@ -242,5 +248,5 @@ if __name__ == '__main__':
         # logging.info(f"STATIC_DIR= {app['config']['STATIC_DIR']} " )
         # logging.info(f"WORK_DIR= {app['config']['WORK_DIR']}  ")
     except Exception as e:
-        logging.error("ERROR",str(e))
+        logging.error("ERROR MAIN",str(e))
         # loop.stop()
