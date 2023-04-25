@@ -62,7 +62,7 @@ async def login_handle(request):
         if bcrypt.checkpw(password, bytes(user.hash,'UTF8') ):
             encoded_jwt = create_token ({"user": user.username,'id':user.id}, salt),
             logging.info("It Matches!")
-            exc = web.HTTPFound(location="/",body=json.dumps({'auth':True}) )
+            exc = web.HTTPFound(location="/",body=json.dumps ({'auth':True}))
             exc.set_cookie("token", encoded_jwt)
             raise exc
         else:
@@ -188,7 +188,7 @@ def create_app(WORK_DIR):
     if conf['mode']=='server':
         app.cleanup_ctx.append(pg_context)
     elif conf['mode']=='local':
-        logging.info("LINE 190 WORK_DIR", WORK_DIR )
+        #logging.info("LINE 190 WORK_DIR", WORK_DIR )
         app['db']= sqlite_context_engine (WORK_DIR)
         # app.cleanup_ctx.append(sqlite_context)
         # sqlite_context_engine
