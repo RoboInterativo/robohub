@@ -1,1 +1,142 @@
-{"pageUrl":"https://t.me/Krisna_das_bot","created_at":"2019-09-02T11:06:08.000Z","data":{"messages":[{"id":"t3booiho2s","starting":true,"default":false,"form":false,"name":"Стартовое сообщение","elements":[{"type":"text","content":"Приветствие","id":"2b2380036e"}],"triggers":[{"type":"tags","tags":["1"]}],"quick_keyboard":null},{"id":"rtli2hg0pp","starting":false,"default":true,"form":false,"name":"Сообщение по умолчанию","elements":[{"type":"text","content":"Ничего не найдено","id":"b2380036e8"}],"triggers":[{"type":"tags","tags":[]}],"quick_keyboard":null},{"id":"xjk3ml79ek","name":"test","starting":false,"default":false,"elements":[{"type":"text","content":"Текст test1","id":"380036e825"}],"triggers":[{"type":"tags","tags":[]}],"quick_keyboard":null},{"id":"hhyfuguf62","name":"Новое сообщение","starting":false,"default":false,"elements":[{"type":"text","content":"Текст"}],"triggers":[{"type":"tags","tags":[]}],"quick_keyboard":[[{"id":"0i4g2yxtxu","type":"message_link","name":"1","message":"t3booiho2s"}]]},{"id":"ttwcb4o8r6","name":"Новое сообщение","starting":false,"default":false,"elements":[{"type":"text","content":"Текст"}],"triggers":[{"type":"tags","tags":[]}]}],"reply_keyboard":null},"author_id":26382,"old_id":null,"connections":{"telegram":{"token":"743132806:AAHr-exHvirdAgQlAKO1U5bXz4TWNSlAt98","name":"Krisna_das_bot","link":"http://t.me/Krisna_das_bot"}},"variables":[],"updated_at":"2023-04-25T09:41:24.000Z","canvas":{},"title":"tele","deleted_at":null,"type":"telegram","id":32437,"options":{"auto_answer":true,"default_answer":true,"add_group":false,"useShortLinks":false,"localization":{}}}
+{
+  "pageUrl": "https://t.me/Krisna_das_bot",
+  "created_at": "2019-09-02T11:06:08.000Z",
+  "data": {
+    "messages": [
+      {
+        "id": "t3booiho2s",
+        "starting": true,
+        "default": false,
+        "form": false,
+        "name": "Стартовое сообщение",
+        "elements": [
+          {
+            "type": "text",
+            "content": "Приветствие",
+            "id": "2b2380036e"
+          }
+        ],
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": [
+              "1"
+            ]
+          }
+        ],
+        "quick_keyboard": null
+      },
+      {
+        "id": "rtli2hg0pp",
+        "starting": false,
+        "default": true,
+        "form": false,
+        "name": "Сообщение по умолчанию",
+        "elements": [
+          {
+            "type": "text",
+            "content": "Ничего не найдено",
+            "id": "b2380036e8"
+          }
+        ],
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": []
+          }
+        ],
+        "quick_keyboard": null
+      },
+      {
+        "id": "xjk3ml79ek",
+        "name": "test",
+        "starting": false,
+        "default": false,
+        "elements": [
+          {
+            "type": "text",
+            "content": "Текст test1",
+            "id": "380036e825"
+          }
+        ],
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": []
+          }
+        ],
+        "quick_keyboard": null
+      },
+      {
+        "id": "hhyfuguf62",
+        "name": "Новое сообщение",
+        "starting": false,
+        "default": false,
+        "elements": [
+          {
+            "type": "text",
+            "content": "Текст"
+          }
+        ],
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": []
+          }
+        ],
+        "quick_keyboard": [
+          [
+            {
+              "id": "0i4g2yxtxu",
+              "type": "message_link",
+              "name": "1",
+              "message": "t3booiho2s"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "ttwcb4o8r6",
+        "name": "Новое сообщение",
+        "starting": false,
+        "default": false,
+        "elements": [
+          {
+            "type": "text",
+            "content": "Текст"
+          }
+        ],
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": []
+          }
+        ]
+      }
+    ],
+    "reply_keyboard": null
+  },
+  "author_id": 26382,
+  "old_id": null,
+  "connections": {
+    "telegram": {
+      "token": "743132806:AAHr-exHvirdAgQlAKO1U5bXz4TWNSlAt98",
+      "name": "Krisna_das_bot",
+      "link": "http://t.me/Krisna_das_bot"
+    }
+  },
+  "variables": [],
+  "updated_at": "2023-04-25T09:41:24.000Z",
+  "canvas": {},
+  "title": "tele",
+  "deleted_at": null,
+  "type": "telegram",
+  "id": 32437,
+  "options": {
+    "auto_answer": true,
+    "default_answer": true,
+    "add_group": false,
+    "useShortLinks": false,
+    "localization": {}
+  }
+}
