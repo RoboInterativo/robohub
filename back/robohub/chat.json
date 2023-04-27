@@ -1,0 +1,251 @@
+{"bot": {
+  "id": 125436,
+  "created_at": "2023-03-31T12:27:50.000Z",
+  "updated_at": "2023-03-31T16:12:07.000Z",
+  "deleted_at": null,
+  "title": "test_bot",
+  "author_id": 112818,
+  "type": "telegram",
+  "connections": {},
+  "data": {
+    "messages": [
+      {
+        "starting": true,
+        "default": false,
+        "form": false,
+        "position": {
+          "x": 223,
+          "y": 145
+        },
+        "name": "Стартовое сообщение",
+        "elements": [
+          {
+            "type": "text",
+            "content": "Приветствуем!  герой",
+            "id": "20a921dd96",
+            "webPagePreview": false
+          }
+        ],
+        "quick_keyboard": [
+          [
+            {
+              "id": "2mmx50yvlj",
+              "type": "message_link",
+              "name": "Новое сообщение",
+              "message": "tr2vh60ohd"
+            }
+          ]
+        ],
+        "id": "yhx8lnsk2p",
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "3u6gtqjf0m",
+        "starting": false,
+        "default": true,
+        "form": false,
+        "name": "Сообщение по умолчанию",
+        "elements": [
+          {
+            "type": "text",
+            "content": "Ничего не найдено",
+            "id": "0a921dd964"
+          }
+        ],
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": []
+          }
+        ],
+        "position": {
+          "x": 644,
+          "y": 0
+        }
+      },
+      {
+        "id": "tr2vh60ohd",
+        "starting": false,
+        "default": false,
+        "form": false,
+        "name": "Новое сообщение",
+        "elements": [
+          {
+            "type": "text",
+            "content": "Текст",
+            "id": "a921dd9641"
+          }
+        ],
+        "triggers": [
+          {
+            "type": "tags",
+            "tags": [
+              "Новое сообщение"
+            ]
+          }
+        ],
+        "position": {
+          "x": 966,
+          "y": 0
+        }
+      }
+    ]
+  },
+  "old_id": null,
+  "options": {
+    "auto_answer": true,
+    "default_answer": true,
+    "users_limit": 300,
+    "add_group": false,
+    "useShortLinks": false,
+    "localization": {}
+  },
+  "canvas": {}
+},
+"access": [
+  {
+    "name": "integrations",
+    "properties": null
+  },
+  {
+    "name": "api",
+    "properties": null
+  },
+  {
+    "name": "buttons",
+    "properties": null
+  },
+  {
+    "name": "galleries",
+    "properties": null
+  },
+  {
+    "name": "files",
+    "properties": null
+  },
+  {
+    "name": "reply_keyboard",
+    "properties": null
+  },
+  {
+    "name": "persistent_menu",
+    "properties": {
+      "levels": null,
+      "buttons": null
+    }
+  },
+  {
+    "name": "geolocations",
+    "properties": null
+  },
+  {
+    "name": "tags",
+    "properties": null
+  },
+  {
+    "name": "chat",
+    "properties": null
+  },
+  {
+    "name": "forms",
+    "properties": null
+  },
+  {
+    "name": "bot_users",
+    "properties": null
+  },
+  {
+    "name": "users_lists",
+    "properties": null
+  },
+  {
+    "name": "payments",
+    "properties": null
+  },
+  {
+    "name": "product_cart",
+    "properties": null
+  },
+  {
+    "name": "dispatches",
+    "properties": null
+  },
+  {
+    "name": "bots",
+    "properties": {
+      "amount": 15
+    }
+  },
+  {
+    "name": "form_responses",
+    "properties": null
+  },
+  {
+    "name": "notifications",
+    "properties": null
+  },
+  {
+    "name": "cart",
+    "properties": null
+  },
+  {
+    "name": "landing",
+    "properties": null
+  },
+  {
+    "name": "auto_dispatches",
+    "properties": null
+  },
+  {
+    "name": "public_api_token",
+    "properties": null
+  },
+  {
+    "name": "permissions",
+    "properties": {
+      "clients": 0,
+      "editors": null
+    }
+  },
+  {
+    "name": "tools",
+    "properties": null
+  },
+  {
+    "name": "product",
+    "properties": null
+  },
+  {
+    "name": "settings",
+    "properties": null
+  },
+  {
+    "name": "constructor",
+    "properties": null
+  },
+  {
+    "name": "text",
+    "properties": null
+  },
+  {
+    "name": "message",
+    "properties": null
+  },
+  {
+    "name": "dialogs",
+    "properties": null
+  },
+  {
+    "name": "users_limit",
+    "properties": {
+      "max": 300,
+      "warning": 200
+    }
+  }
+]
+}

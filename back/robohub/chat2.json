@@ -1,0 +1,165 @@
+[
+  {
+    "bot": {
+      "id": 125472,
+      "created_at": "2023-04-01T18:58:08.000Z",
+      "updated_at": "2023-04-02T18:14:17.000Z",
+      "title": "Quiz. Шаблон бота",
+      "author_id": 112818,
+      "type": "telegram",
+      "connections": {},
+      "options": {
+        "add_group": false,
+        "auto_answer": true,
+        "users_limit": 300,
+        "localization": {},
+        "useShortLinks": false,
+        "default_answer": true
+      },
+      "canvas": {},
+      "shopId": null,
+      "shopTitle": null
+    },
+    "access": [
+      {
+        "name": "integrations",
+        "properties": null
+      },
+      {
+        "name": "api",
+        "properties": null
+      },
+      {
+        "name": "buttons",
+        "properties": null
+      },
+      {
+        "name": "galleries",
+        "properties": null
+      },
+      {
+        "name": "files",
+        "properties": null
+      },
+      {
+        "name": "reply_keyboard",
+        "properties": null
+      },
+      {
+        "name": "persistent_menu",
+        "properties": {
+          "levels": null,
+          "buttons": null
+        }
+      },
+      {
+        "name": "geolocations",
+        "properties": null
+      },
+      {
+        "name": "tags",
+        "properties": null
+      },
+      {
+        "name": "chat",
+        "properties": null
+      },
+      {
+        "name": "forms",
+        "properties": null
+      },
+      {
+        "name": "bot_users",
+        "properties": null
+      },
+      {
+        "name": "users_lists",
+        "properties": null
+      },
+      {
+        "name": "payments",
+        "properties": null
+      },
+      {
+        "name": "product_cart",
+        "properties": null
+      },
+      {
+        "name": "dispatches",
+        "properties": null
+      },
+      {
+        "name": "bots",
+        "properties": {
+          "amount": 15
+        }
+      },
+      {
+        "name": "form_responses",
+        "properties": null
+      },
+      {
+        "name": "notifications",
+        "properties": null
+      },
+      {
+        "name": "cart",
+        "properties": null
+      },
+      {
+        "name": "landing",
+        "properties": null
+      },
+      {
+        "name": "auto_dispatches",
+        "properties": null
+      },
+      {
+        "name": "public_api_token",
+        "properties": null
+      },
+      {
+        "name": "permissions",
+        "properties": {
+          "clients": 0,
+          "editors": null
+        }
+      },
+      {
+        "name": "tools",
+        "properties": null
+      },
+      {
+        "name": "product",
+        "properties": null
+      },
+      {
+        "name": "settings",
+        "properties": null
+      },
+      {
+        "name": "constructor",
+        "properties": null
+      },
+      {
+        "name": "text",
+        "properties": null
+      },
+      {
+        "name": "message",
+        "properties": null
+      },
+      {
+        "name": "dialogs",
+        "properties": null
+      },
+      {
+        "name": "users_limit",
+        "properties": {
+          "max": 300,
+          "warning": 200
+        }
+      }
+    ]
+  }
+]
