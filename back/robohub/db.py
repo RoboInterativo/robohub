@@ -7,7 +7,7 @@ from sqlalchemy import (
 from sqlalchemy.ext.asyncio import create_async_engine
 
 
-__all__ = ['roles', 'users']
+__all__ = ['roles', 'users', 'platforms', 'bots']
 
 meta = MetaData()
 
