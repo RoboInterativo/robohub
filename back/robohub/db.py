@@ -53,22 +53,52 @@ robos = Table(
     Column('token', String(300), nullable=True),
 )
 
+'''
+Здесь должны отображаться все доступные платформы для бота
+id и его название.
+Допустим id - 1, name - telegram
+'''
 platforms = Table(
     'platforms', meta,
     Column('id', Integer, primary_key=True),
-    Column('platform_name', String(200))
+    Column('name', String(200))
 )
 
+'''
+Таблица bots хранит в себе столбы с id, id пользователя,
+id платформы (телеграм, Viber и т.д.),
+датой создания, обновления бота,
+токеном бота и названием бота.
+'''
 bots = Table(
     'bots', meta,
     Column('id', Integer, primary_key=True),
-    Column('platform', String(200), ForeignKey('platforms.id', ondelete='CASCADE')),
+    Column('user_id', Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    Column('platform_id', String(200), ForeignKey('platforms.id', ondelete='CASCADE')),
     Column('date_created', Date, nullable=False),
     Column('date_updated', Date, nullable=False),
-    Column('token', String(300), nullable=False)
+    Column('token', String(300), nullable=False),
+    Column('title', String(200), nullable=True)
 )
 
-# Не понятно, как создать таблицы для просмотра.
+async def get_bots_by_username(conn, username):
+    '''
+    Функция должна находить id пользователя по username
+    и возвращать список ботов пользователя
+    '''
+    get_user_id = await conn.execute(
+        users,
+        .select()
+        .where(users.c.username == username)
+    )
+    user_id =  await result.fetchone() # Предположим что возвращается кортеж
+    result = await conn.execute(
+        bots,
+        .select()
+        .where(bots.c.id_user == user_id[0])
+    )
+    records = await result.fetchall()
+    return records
 
 async def get_user_by_name_sqlite(conn, username):
     result = await conn.execute(
