@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="394" y="275" name="bots">
+</datatypes><table x="271" y="235" name="bots">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -55,11 +55,17 @@
 <row name="date_updated" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
+<row name="token" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="name_bot" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
 <key type="FULLTEXT" name="Platforms">
 <part>id</part>
 </key>
 </table>
-<table x="936" y="199" name="platforms">
+<table x="789" y="196" name="platforms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -70,7 +76,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="563" y="110" name="users">
+<table x="454" y="64" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -91,7 +97,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="737" y="90" name="roles">
+<table x="687" y="32" name="roles">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
