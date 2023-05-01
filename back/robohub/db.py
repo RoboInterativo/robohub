@@ -73,7 +73,7 @@ id платформы (телеграм, Viber и т.д.),
 bots = Table(
     'bots', meta,
     Column('id', Integer, primary_key=True),
-    Column('user_id', Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    Column('user_id', Integer, ForeignKey('users.id', ondelete='CASCADE')),
     Column('platform_id', String(200), ForeignKey('platforms.id', ondelete='CASCADE')),
     Column('date_created', Date, nullable=False),
     Column('date_updated', Date, nullable=False),
@@ -87,33 +87,25 @@ async def get_bots_by_username(conn, username):
     и возвращать список ботов пользователя
     '''
     get_user_id = await conn.execute(
-        users,
-        .select()
-        .where(users.c.username == username)
+        users.select().where(users.c.username == username)
     )
     user_id =  await result.fetchone() # Предположим что возвращается кортеж
     result = await conn.execute(
-        bots,
-        .select()
-        .where(bots.c.id_user == user_id[0])
+        bots.select().where(bots.c.id_user == user_id[0])
     )
     records = await result.fetchall()
     return records
 
 async def get_user_by_name_sqlite(conn, username):
     result = await conn.execute(
-        users
-        .select()
-        .where(users.c.username == username)
+        users.select().where(users.c.username == username)
     )
     records =  result.fetchone() #delete AWAIT for sqlite
     return records
 
 async def get_user_by_name(conn, username):
     result = await conn.execute(
-        users
-        .select()
-        .where(users.c.username == username)
+        users.select().where(users.c.username == username)
     )
     records =  await result.fetchone() #delete AWAIT for sqlite
     return records
