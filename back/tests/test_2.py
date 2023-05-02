@@ -16,40 +16,39 @@ logging.basicConfig(level=logging.DEBUG)
 # app=create_app(WORK_DIR)
 # jar=  CookieJar(unsafe=True,loop=loop)
 
-=======
+
 from aiohttp.test_utils import TestClient, TestServer, loop_context
 from aiohttp import request
 from robohub.main import *
->>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
+
 
 # loop_context is provided as a utility. You can use any
 # asyncio.BaseEventLoop class in its place.
 # with loop_context() as loop:
 #     WORK_DIR=os.path.dirname(os.path.abspath(__file__))+'/..'
-<<<<<<< HEAD
+
 #     app=create_app(WORK_DIR)
 #     jar=  CookieJar(unsafe=True,loop=loop)
-=======
+
 #     print (WORK_DIR)
 #     logging.info('WORK_DIR',WORK_DIR)
-#     app = create_app(WORK_DIR)
->>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
+
 #
 #     with TestClient(TestServer(app), loop=loop) as client:
 #
 #         async def test_get_route():
 #             #nonlocal client
-<<<<<<< HEAD
+
 #             resp = await client.get("/api/login")
-=======
+
 #             resp = await client.get("/")
->>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
+
 #             assert resp.status == 200
 #             # text = await resp.text()
 #             # assert "Hello, world" in text
 #
 #         loop.run_until_complete(test_get_route())
-<<<<<<< HEAD
+
 #============
 
 
@@ -62,7 +61,7 @@ with loop_context() as loop:
     client = TestClient(TestServer(app), loop=loop)
     loop.run_until_complete(client.start_server())
     port =5000
-=======
+
 
 
 from aiohttp.test_utils import TestClient, TestServer
@@ -76,7 +75,7 @@ with loop_context() as loop:
 
     client = TestClient(TestServer(app), loop=loop)
     loop.run_until_complete(client.start_server())
->>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
+
     root = "http://127.0.0.1:{}".format(port)
 
     async def test_get_route():

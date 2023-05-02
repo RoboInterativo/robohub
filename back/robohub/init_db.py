@@ -22,19 +22,16 @@ def hashp (passwd,salt):
 
 def delete_tables(engine):
     meta = MetaData()
-<<<<<<< HEAD
-    meta.drop_all(engine, [roles, users], checkfirst=True)
-
-def create_tables(engine):
-    meta = MetaData()
-    meta.create_all(bind=engine, tables=[roles, users])
-=======
     meta.drop_all(engine, [roles, users, platforms, bots], checkfirst=True)
+
+
+
+
 
 def create_tables(engine):
     meta = MetaData()
     meta.create_all(bind=engine, tables=[roles, users, platforms, bots])
->>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
+
 
 
 def sample_data(engine,config):
