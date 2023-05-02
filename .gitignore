@@ -4,4 +4,8 @@ back/robohub.egg-info
 back/dist
 back/build
 back/test/__pycache__
+<<<<<<< HEAD
+=======
+venv
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
 

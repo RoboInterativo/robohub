@@ -31,6 +31,10 @@ async def login_handle(request):
     salt=conf['salt']
     salt=salt.decode('UTF8')
     post_data = await request.read()
+<<<<<<< HEAD
+=======
+    print(f"Пост дата: {post_data}")
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
     post_data=eval(post_data)
     #post_data_str=str(post_data_str,'UTF8')
     #post_data=json.loads(post_data_str)
@@ -62,7 +66,11 @@ async def login_handle(request):
         if bcrypt.checkpw(password, bytes(user.hash,'UTF8') ):
             encoded_jwt = create_token ({"user": user.username,'id':user.id}, salt),
             logging.info("It Matches!")
+<<<<<<< HEAD
             exc = web.HTTPFound(location="/",body=json.dumps ({'auth':True}))
+=======
+            exc = web.HTTPFound(location="/",body=json.dumps({'auth':True}) )
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
             exc.set_cookie("token", encoded_jwt)
             raise exc
         else:
@@ -179,7 +187,10 @@ def create_app(WORK_DIR):
     app = web.Application()
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
     logging.info('conf',conf)
     conf['WORK_DIR']=WORK_DIR
     conf['STATIC_DIR']=STATIC_DIR
@@ -188,7 +199,11 @@ def create_app(WORK_DIR):
     if conf['mode']=='server':
         app.cleanup_ctx.append(pg_context)
     elif conf['mode']=='local':
+<<<<<<< HEAD
         #logging.info("LINE 190 WORK_DIR", WORK_DIR )
+=======
+        logging.info("LINE 190 WORK_DIR", WORK_DIR )
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
         app['db']= sqlite_context_engine (WORK_DIR)
         # app.cleanup_ctx.append(sqlite_context)
         # sqlite_context_engine

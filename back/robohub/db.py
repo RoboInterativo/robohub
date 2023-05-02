@@ -7,7 +7,11 @@ from sqlalchemy import (
 from sqlalchemy.ext.asyncio import create_async_engine
 
 
+<<<<<<< HEAD
 __all__ = ['roles', 'users']
+=======
+__all__ = ['roles', 'users', 'platforms', 'bots']
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
 
 meta = MetaData()
 
@@ -33,14 +37,20 @@ jobs = Table(
     Column('name', String(200), nullable=False),
     Column('description', String(200), nullable=False),
     Column('job_status', Integer, nullable=False)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
 )
 
 roles = Table(
     'roles', meta,
     Column('id', Integer, primary_key=True),
     Column('name', String(200), nullable=False),
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
 )
 
 robos = Table(
@@ -53,6 +63,7 @@ robos = Table(
     Column('tipo', String(200), nullable=False),
     Column('ligado', Integer, nullable=False),
     Column('token', String(300), nullable=True),
+<<<<<<< HEAD
 
 
 
@@ -66,15 +77,69 @@ async def get_user_by_name_sqlite(conn, username):
         users
         .select()
         .where(users.c.username == username)
+=======
+)
+
+'''
+Здесь должны отображаться все доступные платформы для бота
+id и его название.
+Допустим id - 1, name - telegram
+'''
+platforms = Table(
+    'platforms', meta,
+    Column('id', Integer, primary_key=True),
+    Column('name', String(200))
+)
+
+'''
+Таблица bots хранит в себе столбы с id, id пользователя,
+id платформы (телеграм, Viber и т.д.),
+датой создания, обновления бота,
+токеном бота и названием бота.
+'''
+bots = Table(
+    'bots', meta,
+    Column('id', Integer, primary_key=True),
+    Column('user_id', Integer, ForeignKey('users.id', ondelete='CASCADE')),
+    Column('platform_id', String(200), ForeignKey('platforms.id', ondelete='CASCADE')),
+    Column('date_created', Date, nullable=False),
+    Column('date_updated', Date, nullable=False),
+    Column('token', String(300), nullable=False),
+    Column('title', String(200), nullable=True)
+)
+
+async def get_bots_by_username(conn, username):
+    '''
+    Функция должна находить id пользователя по username
+    и возвращать список ботов пользователя
+    '''
+    get_user_id = await conn.execute(
+        users.select().where(users.c.username == username)
+    )
+    user_id =  await result.fetchone() # Предположим что возвращается кортеж
+    result = await conn.execute(
+        bots.select().where(bots.c.id_user == user_id[0])
+    )
+    records = await result.fetchall()
+    return records
+
+async def get_user_by_name_sqlite(conn, username):
+    result = await conn.execute(
+        users.select().where(users.c.username == username)
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
     )
     records =  result.fetchone() #delete AWAIT for sqlite
     return records
 
 async def get_user_by_name(conn, username):
     result = await conn.execute(
+<<<<<<< HEAD
         users
         .select()
         .where(users.c.username == username)
+=======
+        users.select().where(users.c.username == username)
+>>>>>>> 2156b49b18f9e7a7ab3fbbecf980d80df2b29451
     )
     records =  await result.fetchone() #delete AWAIT for sqlite
     return records
