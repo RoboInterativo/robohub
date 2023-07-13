@@ -27,6 +27,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 // import IconButton from '@mui/material/IconButton';
 // import DeleteIcon from '@mui/icons-material/Delete';
 // import DeleteIcon from '@mui/icons-material/Delete';
@@ -46,6 +47,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 // import Toolbar from '@mui/material/Toolbar';
 // import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 // import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
 // import CardContent from '@mui/material/CardContent';
@@ -78,12 +80,21 @@ const theme = createTheme();
 
 
 theme.typography.h2 = {
-  fontSize: '1.0rem',
-  '@media (min-width:600px)': {
-    fontSize: '1.1rem',
+  fontSize: '1.2rem',
+  '@media (min-width:700px)': {
+    fontSize: '1.3rem',
   },
   [theme.breakpoints.up('md')]: {
     fontSize: '1.4rem',
+  },
+};
+theme.typography.h3 = {
+  fontSize: '0.6rem',
+  '@media (min-width:600px)': {
+    fontSize: '0.7rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '0.9rem',
   },
 };
 
@@ -158,15 +169,15 @@ function DashBoard () {
           <div>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            <Grid item xs={12} md={12} lg={12}>
             <Paper
               sx={{
                 p: 2,
                 display: 'flex',
                 height: '800px',
                 flexDirection: 'column',
-                maxWidth: '800px',
-                width: '800px',
+                maxWidth: '100%',
+                width: '100%',
 
 
 
@@ -179,17 +190,23 @@ function DashBoard () {
 
 
 <ThemeProvider theme={theme}>
-    <Typography variant="h2" >
-    Telegram
-    </Typography>
 
+  <Stack   justifyContent="space-between" direction="row" spacing={2}>
+  <Typography variant="h2" >
+  Добро пожаловать в RoboHub
+  </Typography>
+     <Button variant="contained">Создать бота</Button>
+    </Stack>
+     <Typography variant="h3" >
+     Telegram
+     </Typography>
 <List dense={true}
   component="nav"
   sx={{ height: 'auto',
-    maxWidth: '800px',
+    // maxWidth: '800px',
     fontSize: 14,
     overflow: 'auto',
-    width:'800px',
+    // width:'800px',
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
@@ -232,17 +249,17 @@ function DashBoard () {
 
 }
 </List>
-<Typography variant="h2" >
+<Typography variant="h3" >
 Viber
 </Typography>
 <Typography variant="body1" >
-Нет ботоа
+Нет ботов
 </Typography>
-<Typography variant="h2" >
+<Typography variant="h3" >
 VK
 </Typography>
 <Typography variant="body1" >
-Нет ботоа
+Нет ботов
 </Typography>
   </ThemeProvider>
     </Paper>

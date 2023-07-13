@@ -81,21 +81,6 @@ bots = Table(
     Column('title', String(200), nullable=True)
 )
 
-async def get_bots_by_username(conn, username):
-    '''
-    Функция должна находить id пользователя по username
-    и возвращать список ботов пользователя
-    '''
-    get_user_id = await conn.execute(
-        users.select().where(users.c.username == username)
-    )
-    user_id =  await result.fetchone() # Предположим что возвращается кортеж
-    result = await conn.execute(
-        bots.select().where(bots.c.id_user == user_id[0])
-    )
-    records = await result.fetchall()
-    return records
-
 async def get_user_by_name_sqlite(conn, username):
     result = await conn.execute(
         users.select().where(users.c.username == username)
@@ -109,6 +94,26 @@ async def get_user_by_name(conn, username):
     )
     records =  await result.fetchone() #delete AWAIT for sqlite
     return records
+
+
+async def get_bots_by_username(conn, username):
+    '''
+    Функция должна находить id пользователя по username
+    и возвращать список ботов пользователя
+    '''
+    # get_user_id = await conn.execute(
+    #     users.select().where(users.c.username == username)
+    # )
+    users=await get_user_by_name_sqlite (conn, username)
+
+    user_id =   users # Предположим что возвращается кортеж
+    result = await conn.execute(
+        bots.select().where(bots.c.id_user == user_id)
+    )
+    records = await result.fetchall()
+    return records
+
+
 
         # minsize=conf['minsize'],
         # maxsize=conf['maxsize'],

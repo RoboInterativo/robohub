@@ -7,7 +7,7 @@ import json
 import jwt
 import bcrypt
 from robohub.auth import *
-from robohub.db import pg_context,sqlite_context,sqlite_context_engine
+from robohub.db import pg_context,sqlite_context,sqlite_context_engine, get_bots_by_username
 from  robohub import db
 from robohub.cloapi import *
 from robohub.api import *
@@ -117,27 +117,31 @@ async def get_robos_handle(request):
 
         logging.info('SEARCH in {}'.format(WORK_DIR))
         files=get_files(WORK_DIR+'/')
+        username=response['data']['username']
+        conf=request.app['config']
+        async with request.app['db'].begin() as conn:
+            bots= await get_bots_by_username(conn, username)
         # servers=get_servers(token)
-        robos=[
-        { "id": 1,
-        "titulo":"my_first robo",
-        "tipo":"telegram",
-        "ligago":0        },
-        {"id": 2,
-        "titulo":"my_first robo 2",
-        "tipo":"telegram",
-        "ligago":0        },
-        {"id": 3,
-        "titulo":"my_first robo 3",
-        "tipo":"telegram",
-        "ligago":0       },
-        {  "id": 4,
-        "titulo":"my_first robo 4",
-        "tipo":"telegram",
-        "ligago":0        }
-        ]
-        # robos=[]
-        return web.json_response({'auth':True,'robos':robos})
+        # robos=[
+        # { "id": 1,
+        # "titulo":"my_first robo",
+        # "tipo":"telegram",
+        # "ligago":0        },
+        # {"id": 2,
+        # "titulo":"my_first robo 2",
+        # "tipo":"telegram",
+        # "ligago":0        },
+        # {"id": 3,
+        # "titulo":"my_first robo 3",
+        # "tipo":"telegram",
+        # "ligago":0       },
+        # {  "id": 4,
+        # "titulo":"my_first robo 4",
+        # "tipo":"telegram",
+        # "ligago":0        }
+        # ]
+        robos=[]
+        return web.json_response({'auth':True,'robos':bots,'resp': response})
     else:
         return web.json_response({'auth':False,'error':response})
 
@@ -202,6 +206,7 @@ def create_app(WORK_DIR):
         logging.info("LINE 190 WORK_DIR", WORK_DIR )
 
         app['db']= sqlite_context_engine (WORK_DIR)
+        #app.['logging']=logging
         # app.cleanup_ctx.append(sqlite_context)
         # sqlite_context_engine
 # sqlite_context_engine
