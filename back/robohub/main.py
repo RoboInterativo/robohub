@@ -121,27 +121,28 @@ async def get_robos_handle(request):
         conf=request.app['config']
         # async with request.app['db'].begin() as conn:
         #     bots= await get_bots_by_username(conn, username)
+
         # servers=get_servers(token)
-        # robos=[
-        # { "id": 1,
-        # "titulo":"my_first robo",
-        # "tipo":"telegram",
-        # "ligago":0        },
-        # {"id": 2,
-        # "titulo":"my_first robo 2",
-        # "tipo":"telegram",
-        # "ligago":0        },
-        # {"id": 3,
-        # "titulo":"my_first robo 3",
-        # "tipo":"telegram",
-        # "ligago":0       },
-        # {  "id": 4,
-        # "titulo":"my_first robo 4",
-        # "tipo":"telegram",
-        # "ligago":0        }
-        # ]
+        bots=[
+        { "id": 1,
+        "titulo":"my_first robo",
+        "tipo":"telegram",
+        "ligago":0        },
+        {"id": 2,
+        "titulo":"my_first robo 2",
+        "tipo":"telegram",
+        "ligago":0        },
+        {"id": 3,
+        "titulo":"my_first robo 3",
+        "tipo":"telegram",
+        "ligago":0       },
+        {  "id": 4,
+        "titulo":"my_first robo 4",
+        "tipo":"telegram",
+        "ligago":0        }
+        ]
         robos=[]
-        return web.json_response({'auth':True,'robos':[],'resp': response})
+        return web.json_response({'auth':True,'robos':bots,'resp': response})
     else:
         return web.json_response({'auth':False,'error':response})
 
