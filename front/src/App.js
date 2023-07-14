@@ -1,5 +1,7 @@
 //import * as React from "react";
-import React, { useEffect, }  from "react";
+//import React, { useEffect, }  from "react";
+import React, { useEffect}   from "react";
+
 import { BrowserRouter as Router ,
     Routes,
     Route,
@@ -70,8 +72,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 
 
 
-
-const drawerWidth = 240;
+const drawerWidth = 104;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -147,6 +148,11 @@ function App() {
   //const [auth,setAuth]= useState('true' && localStorage.getItem('auth'));
   //let auth=localStorage.getItem('auth');
 
+  // const [data,setData]= useState('');
+
+
+
+
   useEffect ( () =>  {
     axios.post('/api/is_auth').then(response => {
       console.log(response.data);
@@ -190,6 +196,8 @@ function App() {
 //
 
   return (
+
+
         <Router>
         <ThemeProvider theme={mdTheme}>
              <Box sx={{ display: 'flex' }}>
@@ -426,6 +434,7 @@ function App() {
               </Box>
               </ThemeProvider>
         </Router>
+        
 
     );
 }

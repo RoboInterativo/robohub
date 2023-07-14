@@ -119,8 +119,8 @@ async def get_robos_handle(request):
         files=get_files(WORK_DIR+'/')
         username=response['data']['username']
         conf=request.app['config']
-        async with request.app['db'].begin() as conn:
-            bots= await get_bots_by_username(conn, username)
+        # async with request.app['db'].begin() as conn:
+        #     bots= await get_bots_by_username(conn, username)
         # servers=get_servers(token)
         # robos=[
         # { "id": 1,
@@ -141,7 +141,7 @@ async def get_robos_handle(request):
         # "ligago":0        }
         # ]
         robos=[]
-        return web.json_response({'auth':True,'robos':bots,'resp': response})
+        return web.json_response({'auth':True,'robos':[],'resp': response})
     else:
         return web.json_response({'auth':False,'error':response})
 

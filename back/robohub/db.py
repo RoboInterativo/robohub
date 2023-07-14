@@ -119,7 +119,7 @@ async def get_bots_by_username(conn, username):
         # maxsize=conf['maxsize'],
 
 def sqlite_context_engine(WORK_DIR):
-    DB_DIR=WORK_DIR+'/robohub'
+    DB_DIR=WORK_DIR
     print ('sqlite+aiosqlite:///{}/foo.db'.format(DB_DIR))
     engine =  create_async_engine('sqlite+aiosqlite:///{}/foo.db'.format(DB_DIR))
     return  engine

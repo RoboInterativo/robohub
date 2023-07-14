@@ -1,9 +1,11 @@
-import React, { useEffect,useState }  from "react";
+import React, { useEffect,useState  }  from "react";
 import Grid from '@mui/material/Grid';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import RoboFlow from './RoboFlow';
+
 
 // import Breadcrumbs from '@mui/material/Breadcrumbs';
 // import Link from '@mui/material/Link';
@@ -108,8 +110,6 @@ import axios from 'axios';
 
 
 
-
-
 function DashBoard () {
   // const [dashboard,setDashboard]= useState('servers');
 //   const buttonClick = (dash) => () => {
@@ -134,6 +134,8 @@ function DashBoard () {
 }));
   //const auth=true;
   const [data,setData]= useState('');
+
+
   useEffect ( () =>  {
     axios.post('/api/robos')
         .then(response => {
@@ -160,8 +162,10 @@ function DashBoard () {
 
 
 
+
       { !data.auth &&
         <div>
+            <RoboFlow/>
           <p>Forbidden</p>
         </div>
       }
@@ -190,6 +194,7 @@ function DashBoard () {
 
 
 <ThemeProvider theme={theme}>
+
 
   <Stack   justifyContent="space-between" direction="row" spacing={2}>
   <Typography variant="h2" >
