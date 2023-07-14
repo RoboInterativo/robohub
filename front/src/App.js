@@ -221,7 +221,7 @@ function App() {
                      <MenuIcon />
                    </IconButton> }
 
-                     Dashboard
+                     RoboHub
 
 
                      <Link  to="/profile">
@@ -434,7 +434,7 @@ function App() {
               </Box>
               </ThemeProvider>
         </Router>
-        
+
 
     );
 }
