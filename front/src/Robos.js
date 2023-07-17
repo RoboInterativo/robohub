@@ -110,7 +110,7 @@ import axios from 'axios';
 
 
 
-function DashBoard () {
+function Robos () {
   // const [dashboard,setDashboard]= useState('servers');
 //   const buttonClick = (dash) => () => {
 //   // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -284,4 +284,4 @@ VK
 
 
 
-export default  DashBoard;
+export default  Robos;
