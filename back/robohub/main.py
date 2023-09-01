@@ -7,7 +7,7 @@ import json
 import jwt
 import bcrypt
 from robohub.auth import *
-from robohub.db import pg_context,sqlite_context,sqlite_context_engine
+from robohub.db import pg_context,sqlite_context,sqlite_context_engine, get_bots_by_username
 from  robohub import db
 from robohub.cloapi import *
 from robohub.api import *
@@ -31,6 +31,9 @@ async def login_handle(request):
     salt=conf['salt']
     salt=salt.decode('UTF8')
     post_data = await request.read()
+
+    print(f"Пост дата: {post_data}")
+
     post_data=eval(post_data)
     #post_data_str=str(post_data_str,'UTF8')
     #post_data=json.loads(post_data_str)
@@ -62,7 +65,11 @@ async def login_handle(request):
         if bcrypt.checkpw(password, bytes(user.hash,'UTF8') ):
             encoded_jwt = create_token ({"user": user.username,'id':user.id}, salt),
             logging.info("It Matches!")
+
             exc = web.HTTPFound(location="/",body=json.dumps ({'auth':True}))
+
+            #exc = web.HTTPFound(location="/",body=json.dumps({'auth':True}) )
+
             exc.set_cookie("token", encoded_jwt)
             raise exc
         else:
@@ -110,8 +117,13 @@ async def get_robos_handle(request):
 
         logging.info('SEARCH in {}'.format(WORK_DIR))
         files=get_files(WORK_DIR+'/')
+        username=response['data']['username']
+        conf=request.app['config']
+        # async with request.app['db'].begin() as conn:
+        #     bots= await get_bots_by_username(conn, username)
+
         # servers=get_servers(token)
-        robos=[
+        bots=[
         { "id": 1,
         "titulo":"my_first robo",
         "tipo":"telegram",
@@ -129,8 +141,8 @@ async def get_robos_handle(request):
         "tipo":"telegram",
         "ligago":0        }
         ]
-        # robos=[]
-        return web.json_response({'auth':True,'robos':robos})
+        robos=[]
+        return web.json_response({'auth':True,'robos':bots,'resp': response})
     else:
         return web.json_response({'auth':False,'error':response})
 
@@ -180,6 +192,7 @@ def create_app(WORK_DIR):
 
 
 
+
     logging.info('conf',conf)
     conf['WORK_DIR']=WORK_DIR
     conf['STATIC_DIR']=STATIC_DIR
@@ -188,8 +201,13 @@ def create_app(WORK_DIR):
     if conf['mode']=='server':
         app.cleanup_ctx.append(pg_context)
     elif conf['mode']=='local':
+
         #logging.info("LINE 190 WORK_DIR", WORK_DIR )
+
+        logging.info("LINE 190 WORK_DIR", WORK_DIR )
+
         app['db']= sqlite_context_engine (WORK_DIR)
+        #app.['logging']=logging
         # app.cleanup_ctx.append(sqlite_context)
         # sqlite_context_engine
 # sqlite_context_engine
