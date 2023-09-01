@@ -1,6 +1,7 @@
 
 FROM node:18.17
 COPY front /opt/front
+WORKDIR /opt/front
 RUN cd /opt/front &&npm install
 # && npm run build && ls -li
 # FROM python:3.10-slim
