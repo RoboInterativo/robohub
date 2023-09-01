@@ -9,6 +9,8 @@ COPY front /app
 RUN npm install && npm run build
 # --production
 # && npm run build && ls -li
-# FROM python:3.10-slim
-# COPY --from=0 /bin/hello /bin/hello
+FROM python:3.10-slim
+
+COPY --from=0 /app/front/build /app/build
+COPY back /app/back
 # CMD ["/bin/hello"]
