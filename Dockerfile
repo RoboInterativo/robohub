@@ -10,7 +10,7 @@ RUN npm install && npm run build
 # --production
 # && npm run build && ls -li
 FROM python:3.10-slim
-mkdir /app
+RUN mkdir /app
 ENV PYTHONHOME=/app
 COPY --from=0 /app/build /app/build
 COPY back /app/back
