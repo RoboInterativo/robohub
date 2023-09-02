@@ -18,5 +18,5 @@ RUN python -m venv /opt/venv &&\
 USER 1001
 
 RUN . /opt/venv/bin/activate &&\
-        pip install pip --upgrade --cache-dir /tmp
+        pip --cache-dir /tmp install pip --upgrade 
 # CMD ["/bin/hello"]
