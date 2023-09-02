@@ -10,13 +10,13 @@ RUN npm install && npm run build
 # --production
 # && npm run build && ls -li
 FROM python:3.10-slim
-
+ENV PYTHONHOME=/app
 COPY --from=0 /app/build /app/build
 COPY back /app/back
-RUN python -m venv /opt/venv &&\
-    chown 1001:1001 /opt/ -r
+RUN python -m venv /app/venv &&\
+    chown 1001:1001 /app/ -R
 USER 1001
-
-RUN . /opt/venv/bin/activate &&\
+WORKDIR /app/
+RUN . /app/venv/bin/activate &&\
         pip --cache-dir /tmp install pip --upgrade
 # CMD ["/bin/hello"]
