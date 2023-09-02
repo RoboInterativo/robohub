@@ -11,7 +11,7 @@ RUN npm install && npm run build
 # && npm run build && ls -li
 FROM python:3.10-slim
 RUN mkdir /app
-ENV PYTHONHOME=/app
+ENV PYTHONHOME=/app/venv
 ENV PYTHONPATH=/app/venv/bin
 COPY --from=0 /app/build /app/build
 COPY back /app/back
