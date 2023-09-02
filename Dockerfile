@@ -14,9 +14,9 @@ FROM python:3.10-slim
 COPY --from=0 /app/build /app/build
 COPY back /app/back
 RUN python -m venv /opt/venv &&\
-    chown 1001:1001 /opt/ -R
+    chown 1001:1001 /opt/ -r
 USER 1001
 
 RUN . /opt/venv/bin/activate &&\
-        pip --cache-dir /tmp install pip --upgrade 
+        pip --cache-dir /tmp install pip --upgrade
 # CMD ["/bin/hello"]
