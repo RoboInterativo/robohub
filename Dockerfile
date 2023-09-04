@@ -21,6 +21,6 @@ RUN python -m venv /app/venv &&\
 USER 1001
 ENV HOME=/app
 WORKDIR /app/
-RUN . /app/venv/bin/activate &&\
-        pip install --upgrade pip
+#RUN . /app/venv/bin/activate &&\
+#        pip install --upgrade pip
 # CMD ["/bin/hello"]
