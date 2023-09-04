@@ -21,7 +21,6 @@ RUN python -m venv /app/venv &&\
 USER 1001
 ENV HOME=/app
 WORKDIR /app/
-#RUN . /app/venv/bin/activate && python --version
-        # python -m pip --cache-dir /tmp install encodings &&\
-        # pythp -m pip --cache-dir /tmp install pip --upgrade
+RUN . /app/venv/bin/activate &&\
+        pip /tmp install pip --upgrade 
 # CMD ["/bin/hello"]
