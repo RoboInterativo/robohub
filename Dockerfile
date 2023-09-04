@@ -19,7 +19,7 @@ RUN python -m venv /app/venv &&\
     chown 1001:1001 /app/ -R
 USER 1001
 WORKDIR /app/
-RUN . /app/venv/bin/activate &&\
-        python -m pip --cache-dir /tmp install encodings &&\
-        pythpn -m pip --cache-dir /tmp install pip --upgrade
+RUN . /app/venv/bin/activate && python --version 
+        # python -m pip --cache-dir /tmp install encodings &&\
+        # pythp -m pip --cache-dir /tmp install pip --upgrade
 # CMD ["/bin/hello"]
