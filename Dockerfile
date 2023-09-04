@@ -22,5 +22,5 @@ USER 1001
 ENV HOME=/app
 WORKDIR /app/
 RUN . /app/venv/bin/activate &&\
-        pip install --upgrade
+        pip install --upgrade pip
 # CMD ["/bin/hello"]
