@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import pytest
 import json
 import asyncio
